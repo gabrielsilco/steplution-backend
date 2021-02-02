@@ -33,7 +33,6 @@ export const TutorialSchema = new mongoose.Schema({
     defaultSteps: [{
         title: {
             type: String,
-            required: true,
             trim: true
         },
         content: {
@@ -62,3 +61,4 @@ export const TutorialSchema = new mongoose.Schema({
             }
         }]
     }]
+})
