@@ -24,6 +24,10 @@ export class TutorialService {
         return this.tutorialModel.findById(tutorialId);
     }
 
+    async updateById(tutorialId: string, newTutorialData: CreateTutorialDto | any): Promise<Tutorial> {
+        return this.tutorialModel.findOneAndUpdate({ _id: tutorialId}, newTutorialData)
+    }
+
     async deleteById(tutorialId: string) {
         return this.tutorialModel.findByIdAndDelete(tutorialId)
     }

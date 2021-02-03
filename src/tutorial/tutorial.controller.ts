@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Post, Put } from '@nestjs/common';
 import { ApiTags } from '@nestjs/swagger';
 import { CreateTutorialDto } from './dto/create-tutorial.dto';
 import { TutorialService } from './tutorial.service';
@@ -21,6 +21,11 @@ export class TutorialController {
     @Get('getById/:id')
     async getById(@Param('id') id: string) {
         return await this.tutorialService.getById(id);
+    }
+
+    @Put('updateById/:id')
+    async updateById(@Param('id') id: string, @Body() newTutorialData: CreateTutorialDto) {
+        return await this.tutorialService.updateById(id, newTutorialData)
     }
 
     @Delete('delete/:id')
